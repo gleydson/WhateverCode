@@ -89,7 +89,7 @@ int main() {
             case 3:
                 break;
             default:
-            printf("\nIncorrect code!\n");
+                printf("\nIncorrect code!\n");
         }
     }
 
