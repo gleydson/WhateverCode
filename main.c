@@ -26,9 +26,8 @@ int main() {
         if(!listEquipment[i].exist)
             printf("\nEmpty stock!\n");
         for(; i < MAX_SIZE; i++)
-            if(listEquipment[i].exist) {
+            if(listEquipment[i].exist)
                 printf("\n%d - %s - %s - %s\n", listEquipment[i].code, listEquipment[i].name, listEquipment[i].description, listEquipment[i].type);
-            }
     }
 
     Boolean registerEquipment(int code, char * name, char * description, char * type) {
