@@ -61,6 +61,8 @@ int main() {
 
         scanf("%d", &op);
 
+        if(op == 3) break;
+
         switch(op) {
             case 1:
                 printf("Enter a code for the product: ");
@@ -86,8 +88,6 @@ int main() {
                     printf("\nEquipment not found!\n");
                 else
                     printf("\nEquipment found!\n");
-            case 3:
-                break;
             default:
                 printf("\nIncorrect code!\n");
         }
