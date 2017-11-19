@@ -3,8 +3,7 @@
 #include <string.h>
 
 typedef enum { True = 1, False = 0 } Boolean;
-enum { MAX_SIZE = 100 };
-enum {SIZE_NAME = 100, SIZE_DESCRIPTION = 100, SIZE_TYPE = 100};
+enum { MAX_SIZE = 100, SIZE_NAME = 100, SIZE_DESCRIPTION = 100, SIZE_TYPE = 100 };
 
 typedef struct {
     int code;
