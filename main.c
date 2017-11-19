@@ -13,10 +13,6 @@ typedef struct {
     Boolean exist;
 } Equipment;
 
-void showAllEquipaments();
-Boolean registerEquipment(int code, char * name, char * description, char * type);
-Boolean searchEquipment(char * name);
-
 int main() {
     Equipment * listEquipment = (Equipment *) malloc(sizeof(Equipment) * MAX_SIZE);
 
@@ -32,6 +28,45 @@ int main() {
         strcpy(name, "");
         strcpy(description, "");
         strcpy(type, "");
+
+        void showAllEquipaments() {
+            int i = 0;
+            if(!listEquipment[i].exist)
+                printf("\nEmpty stock!\n");
+            for(; i < MAX_SIZE; i++)
+                if(listEquipment[i].exist)
+                    printf("\n%d - %s - %s - %s\n",
+                    listEquipment[i].code, listEquipment[i].name, listEquipment[i].description, listEquipment[i].type);
+        }
+
+        Boolean registerEquipment(int code, char * name, char * description, char * type) {
+            int i = 0;
+            for(; i < MAX_SIZE; i++) {
+                if(listEquipment[i].exist != True) {
+                    Equipment newEquipment;
+                    newEquipment.code = code;
+                    strcpy(newEquipment.name, name);
+                    strcpy(newEquipment.description, description);
+                    strcpy(newEquipment.type, type);
+                    newEquipment.exist = True;
+                    listEquipment[i] = newEquipment;
+                    return True;
+                }
+            }
+            return False;
+        }
+
+        Boolean searchEquipment(char * name) {
+            int i = 0;
+            for(; i < MAX_SIZE; i++){
+                if(strcmp(listEquipment[i].name, name) == 0 && listEquipment[i].exist == True) {
+                    printf("\n%d - %s - %s - %s\n",
+                    listEquipment[i].code, listEquipment[i].name, listEquipment[i].description, listEquipment[i].type);
+                    return True;
+                }
+            }
+            return False;
+        }
 
         printf("\n1 - Create new equipment | 2 - Search equipment | 3 - List equipaments | 4 - Exit\n");
 
@@ -75,43 +110,4 @@ int main() {
     free(listEquipment);
 
     return 0;
-}
-
-void showAllEquipaments() {
-    int i = 0;
-    if(!listEquipment[i].exist)
-        printf("\nEmpty stock!\n");
-    for(; i < MAX_SIZE; i++)
-        if(listEquipment[i].exist)
-            printf("\n%d - %s - %s - %s\n",
-            listEquipment[i].code, listEquipment[i].name, listEquipment[i].description, listEquipment[i].type);
-}
-
-Boolean registerEquipment(int code, char * name, char * description, char * type) {
-    int i = 0;
-    for(; i < MAX_SIZE; i++) {
-        if(listEquipment[i].exist != True) {
-            Equipment newEquipment;
-            newEquipment.code = code;
-            strcpy(newEquipment.name, name);
-            strcpy(newEquipment.description, description);
-            strcpy(newEquipment.type, type);
-            newEquipment.exist = True;
-            listEquipment[i] = newEquipment;
-            return True;
-        }
-    }
-    return False;
-}
-
-Boolean searchEquipment(char * name) {
-    int i = 0;
-    for(; i < MAX_SIZE; i++){
-        if(strcmp(listEquipment[i].name, name) == 0 && listEquipment[i].exist == True) {
-            printf("\n%d - %s - %s - %s\n",
-            listEquipment[i].code, listEquipment[i].name, listEquipment[i].description, listEquipment[i].type);
-            return True;
-        }
-    }
-    return False;
 }
