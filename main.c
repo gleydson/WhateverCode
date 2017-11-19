@@ -21,10 +21,20 @@ int main() {
     char description[SIZE_DESCRIPTION];
     char type[SIZE_TYPE];
 
+    void showAllEquipaments() {
+        int i = 0;
+        if(!listEquipment[i].exist)
+            printf("\nEmpty stock!\n");
+        for(; i < MAX_SIZE; i++)
+            if(listEquipment[i].exist) {
+                printf("\n%d - %s - %s - %s\n", listEquipment[i].code, listEquipment[i].name, listEquipment[i].description, listEquipment[i].type);
+            }
+    }
+
     Boolean registerEquipment(int code, char * name, char * description, char * type) {
         int i = 0;
-        for(; i < MAX_SIZE; i++){
-            if(listEquipment[i].exist != True){
+        for(; i < MAX_SIZE; i++) {
+            if(listEquipment[i].exist != True) {
                 Equipment newEquipment;
                 newEquipment.code = code;
                 strcpy(newEquipment.name, name);
@@ -57,11 +67,11 @@ int main() {
         strcpy(description, "");
         strcpy(type, "");
 
-        printf("\n1 - Create new equipment | 2 - Search equipment | 3 - Exit\n");
+        printf("\n1 - Create new equipment | 2 - Search equipment | 3 - List equipaments | 4 - Exit\n");
 
         scanf("%d", &op);
 
-        if(op == 3) break;
+        if(op == 4) break;
 
         switch(op) {
             case 1:
@@ -78,7 +88,6 @@ int main() {
                     printf("\nError recording equipment!\n");
                 else
                     printf("\nSuccessfully registered equipment!\n");
-
                 break;
             case 2:
                 printf("\nEnter a name to search for a product: ");
@@ -88,6 +97,10 @@ int main() {
                     printf("\nEquipment not found!\n");
                 else
                     printf("\nEquipment found!\n");
+                    break;
+            case 3:
+                showAllEquipaments();
+                break;
             default:
                 printf("\nIncorrect code!\n");
         }
