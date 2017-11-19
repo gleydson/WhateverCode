@@ -98,7 +98,7 @@ int main() {
                     printf("\nEquipment not found!\n");
                 else
                     printf("\nEquipment found!\n");
-                    break;
+                break;
             case 3:
                 showAllEquipaments();
                 break;
