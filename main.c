@@ -4,12 +4,13 @@
 
 typedef enum { True = 1, False = 0 } Boolean;
 enum { MAX_SIZE = 100 };
+enum {SIZE_NAME = 100, SIZE_DESCRIPTION = 100, SIZE_TYPE = 100};
 
 typedef struct {
     int code;
-    char name[50];
-    char description[100];
-    char type[15];
+    char name[SIZE_NAME];
+    char description[SIZE_DESCRIPTION];
+    char type[SIZE_TYPE];
     Boolean exist;
 } Equipment;
 
@@ -17,9 +18,9 @@ int main() {
     Equipment * listEquipment = (Equipment *) malloc(sizeof(Equipment) * MAX_SIZE);
 
     int code;
-    char name[50];
-    char description[100];
-    char type[15];
+    char name[SIZE_NAME];
+    char description[SIZE_DESCRIPTION];
+    char type[SIZE_TYPE];
 
     Boolean registerEquipment(int code, char * name, char * description, char * type) {
         int i = 0;
