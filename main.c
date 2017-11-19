@@ -27,7 +27,8 @@ int main() {
             printf("\nEmpty stock!\n");
         for(; i < MAX_SIZE; i++)
             if(listEquipment[i].exist)
-                printf("\n%d - %s - %s - %s\n", listEquipment[i].code, listEquipment[i].name, listEquipment[i].description, listEquipment[i].type);
+                printf("\n%d - %s - %s - %s\n",
+                listEquipment[i].code, listEquipment[i].name, listEquipment[i].description, listEquipment[i].type);
     }
 
     Boolean registerEquipment(int code, char * name, char * description, char * type) {
@@ -51,7 +52,8 @@ int main() {
         int i = 0;
         for(; i < MAX_SIZE; i++){
             if(strcmp(listEquipment[i].name, name) == 0 && listEquipment[i].exist == True) {
-                printf("\n%d - %s - %s - %s\n", listEquipment[i].code, listEquipment[i].name, listEquipment[i].description, listEquipment[i].type);
+                printf("\n%d - %s - %s - %s\n",
+                listEquipment[i].code, listEquipment[i].name, listEquipment[i].description, listEquipment[i].type);
                 return True;
             }
         }
