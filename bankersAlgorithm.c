@@ -95,7 +95,7 @@ int main()
         printf("P: %d Falta: %d Usou: %d Recursos: %d \n", i, processos[i].qtdRecursos, processos[i].recursosUsados, qtdRecursos);
       }
     }
-    //printf("Oi gente!");
+
     if (processosFinalizados == QTD_PROCESSOS)
       break;
   }
